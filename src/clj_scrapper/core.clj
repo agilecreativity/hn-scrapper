@@ -32,11 +32,14 @@
     (.write w "### Hacker News Index - 10 pages")
     (.newLine w)
     ;; Note: Hacker News only show the last 20 pages
-    (doseq [n (range 10)]
+    (doseq [n (range 20)]
       (let [content (extract-data (inc n))]
+        ;; Let sleep 1 second between new request
+        (Thread/sleep 1000)
         ;; And get just the field we need
         (doseq [line (markdown-links content)]
-          ;(pp/pprint line)
+          ;; Print out so we know where we are
+          (pp/pprint line)
           ;; Print this as a list
           (.write w (str " - " line))
           (.newLine w))))))
