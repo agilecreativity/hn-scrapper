@@ -29,9 +29,10 @@
 
 (defn -main [& args]
   (with-open [w (io/writer "/home/bchoomnuan/Desktop/hacker-news.md")]
-    (.write w "### Hacker News Index")
+    (.write w "### Hacker News Index - 10 pages")
+    (.newLine w)
     ;; Note: Hacker News only show the last 20 pages
-    (doseq [n (range 5)]
+    (doseq [n (range 10)]
       (let [content (extract-data (inc n))]
         ;; And get just the field we need
         (doseq [line (markdown-links content)]
