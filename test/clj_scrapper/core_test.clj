@@ -1,6 +1,6 @@
-(ns clj-scrapper.core-test
+(ns clj_scrapper.core-test
   (:require [clojure.test :refer :all]
-            [clj-scrapper.core :refer :all]))
+            [clj_scrapper.core :refer :all]))
 
 (deftest a-test
   (testing "FIXME, I fail."

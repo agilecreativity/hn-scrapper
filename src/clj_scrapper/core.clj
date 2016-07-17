@@ -1,5 +1,6 @@
 (ns clj_scrapper.core
-  (:require [clojure.pprint :as pp]
+  (:require [clojure.java.io :as io]
+            [clojure.pprint :as pp]
             [reaver :refer [parse extract-from text attr]])
   (:gen-class))
 
@@ -8,7 +9,6 @@
   [page-number]
   (str "https://news.ycombinator.com/news?p=" page-number))
 
-;(def hacker-news (slurp "https://news.ycombinator.com"))
 (defn- hacker-news
   "Read the content of hacker-news for a given page"
   [page-number]
@@ -25,12 +25,17 @@
 (defn markdown-links
   "Create basic markdown link from content map"
   [content]
-  (map #(str "[" (:headline %) "](" (:url %) "]") content))
+  (map #(str "[" (:headline %) "](" (:url %) ")") content))
 
 (defn -main [& args]
-  ;; Note: Hacker News only show the last 20 pages
-  (dotimes [n 20]
-    (let [content (extract-data (inc n))]
-      (do
+  (with-open [w (io/writer "/home/bchoomnuan/Desktop/hacker-news.md")]
+    (.write w "### Hacker News Index")
+    ;; Note: Hacker News only show the last 20 pages
+    (doseq [n (range 5)]
+      (let [content (extract-data (inc n))]
         ;; And get just the field we need
-        (pp/pprint (markdown-links content))))))
+        (doseq [line (markdown-links content)]
+          ;(pp/pprint line)
+          ;; Print this as a list
+          (.write w (str " - " line))
+          (.newLine w))))))
