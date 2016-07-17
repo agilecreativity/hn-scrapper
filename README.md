@@ -10,7 +10,8 @@ TODO: add more detail when you have one!
 
 - Make this a CLI using [lein-bin]()
 - Export/print first level content of hackernews to PDFs or Epubs
-- Group the results in some ways (topics, keywords, etc)
+- Group the results in some ways (topics, keywords, link to YouTube?)
+- Persist the result to html pages and store the link just once!
 
 ## Useful Links
 

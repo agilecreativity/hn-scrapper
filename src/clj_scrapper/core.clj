@@ -22,21 +22,15 @@
                 ".title > a" text
                 ".title > a" (attr :href)))
 
-;; (defn extract-field
-;;   "Extract the given field from a given content map"
-;;   [field content]
-;;   (map field content))
-
 (defn markdown-links
   "Create basic markdown link from content map"
   [content]
   (map #(str "[" (:headline %) "](" (:url %) "]") content))
 
 (defn -main [& args]
-  (let [content (extract-data 4)]
-    (do
-      ;; Let's see the sample content
-      ;;(pp/pprint (first content))
-
-      ;; And get just the field we need
-      (pp/pprint (markdown-links content)))))
+  ;; Note: Hacker News only show the last 20 pages
+  (dotimes [n 20]
+    (let [content (extract-data (inc n))]
+      (do
+        ;; And get just the field we need
+        (pp/pprint (markdown-links content))))))
