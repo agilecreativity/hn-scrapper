@@ -18,7 +18,7 @@
   (slurp (hacker-news-url page-number)))
 
 (defn extract-data
-  "Extract some data from hacker-news"
+  "Extract the data from the web page for a given page-number"
   [page-number]
   (let [content (parse (hacker-news page-number))]
     (do
@@ -31,7 +31,7 @@
 (defn- discussion-url
   [vote-url]
   (let [article-id (re-find #"\d+" vote-url)]
-    (str "[Discussion](https://news.ycombinator.com/item?id=" article-id ")")))
+    (str "[Comments](https://news.ycombinator.com/item?id=" article-id ")")))
 
 (defn- create-url
   [item]
@@ -52,28 +52,25 @@
     (cond
       (:help options)
       (exit 0 (usage summary)))
-    ;; If we get here, then we have all the argument that we need
+    ;; If we get here, then we are ready to go
     (let [output-file (-> (:output-file options)
                           (fs/expand-home)
                           (fs/normalized))
           page-count (:page-count options)]
       (do
-        ;(println "Number of pages to be selected : " page-count)
+        ;; Show the output file path if required
         ;(println "Output file : " output-file)
         (with-open [w (io/writer output-file)]
-          (.write w (str "### The latest " page-count " pages from Hacker News"))
+          (.write w (str "### The last " page-count " pages from Hacker News"))
           (.newLine w)
           ;; Note: Hacker News only show the last 20 pages
           (doseq [n (range (Integer. page-count))]
-            ;(println "Processing page " (inc n))
             (let [content (extract-data (inc n))]
-              ;; Let sleep 1 second between new request to be polite
-              (Thread/sleep 1000)
-              ;(println "TYPE OF CONTENT: " (type content))
-              ;; And get just the field we need
+              ;; Let sleep 500 mili-second between new request to be polite
+              (Thread/sleep 500)
               (doseq [line (markdown-links content)]
-                ;; Print out so we know where we are (optional)
-                (pp/pprint line)
-                ;; Print this as a list
+                ;; Show something to get a better experience
+                (println line)
+                ;; Create a list in Markdown format
                 (.write w (str " - " line))
                 (.newLine w)))))))))
