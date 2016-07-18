@@ -7,11 +7,13 @@
              :uberjar {:aot :all}}
   :source-paths ["src/clj"]
   :java-source-paths ["src/java"]
+  :bin {:name "hn-scrapper"
+        :bin-path "~/bin"
+        :bootclasspath true}
+  :plugins [[lein-bin "0.3.4"]
+            [lein-cljfmt "0.5.3"]]
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [reaver "0.1.2"]
                  [org.clojure/tools.cli "0.3.5"]
                  [me.raynes/fs "1.4.6"]]
-  :bin {:name "hn-scrapper"
-        :bin-path "~/bin"
-        :bootclasspath true}
   :main com.agilecreativity.hn_scrapper.main)
