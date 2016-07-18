@@ -16,6 +16,7 @@ Add the example CLI here
 
 - [reaver](https://github.com/mischov/reaver)
 - [jsoup](https://github.com/jhy/jsoup/)
+- [jsoup - selector syntax](https://jsoup.org/cookbook/extracting-data/selector-syntax)
 
 ## License
 
