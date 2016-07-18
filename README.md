@@ -1,14 +1,13 @@
-# clj-scrapper
+# hn-scrapper
 
-A Clojure library extracted useful data from the website for useful information.
+Get all of the latest links from [Hacker News](https://news.ycombinator.com/) into a single page.
 
 ## Usage
 
-TODO: add more detail when you have one!
+Add the example CLI here
 
 ## Features idea
 
-- Make this a CLI using [lein-bin]()
 - Export/print first level content of hackernews to PDFs or Epubs
 - Group the results in some ways (topics, keywords, link to YouTube?)
 - Persist the result to html pages and store the link just once!

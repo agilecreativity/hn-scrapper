@@ -1,4 +1,4 @@
-(ns clj_scrapper.core
+(ns com.agilecreativity.hn_scrapper.main
   (:require [clojure.java.io :as io]
             [clojure.pprint :as pp]
             [reaver :refer [parse extract-from text attr]])
@@ -29,12 +29,12 @@
 
 (defn -main [& args]
   (with-open [w (io/writer "/home/bchoomnuan/Desktop/hacker-news.md")]
-    (.write w "### Hacker News Index - 10 pages")
+    (.write w "### The Last 20 Pages from Hacker News")
     (.newLine w)
     ;; Note: Hacker News only show the last 20 pages
-    (doseq [n (range 20)]
+    (doseq [n (range 2)]
       (let [content (extract-data (inc n))]
-        ;; Let sleep 1 second between new request
+        ;; Let sleep 1 second between new request to be polite
         (Thread/sleep 1000)
         ;; And get just the field we need
         (doseq [line (markdown-links content)]
