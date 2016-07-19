@@ -1,5 +1,8 @@
 ## hn-scrapper
 
+[![Clojars Project](https://img.shields.io/clojars/v/scrapper.svg)](https://clojars.org/scrapper)
+[![Dependencies Status](https://jarkeeper.com/agilecreativity/hn-scrapper/status.svg)](https://jarkeeper.com/agilecreativity/hn-scrapper)
+
 Get all of the latest links from [Hacker News](https://news.ycombinator.com/) into a single page.
 
 ### Installation and basic usage as CLI
