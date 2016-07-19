@@ -59,6 +59,24 @@ Now get the list of all news from [Hacker News](https://news.ycombinator.com/new
 ~/bin/hn-scrapper -p 20 -o hacker-news-top-20-pages.md
 ```
 
+## Example Sessions and Outputs
+
+### Sample sessions
+
+![](https://github.com/agilecreativity/hn-scrapper/raw/master/doc/01-sample-session.gif)
+
+### Sample Markdown Output
+
+![](https://github.com/agilecreativity/hn-scrapper/raw/master/doc/02-markdown-output.png)
+
+### Sample Markdown Output view in Github's Gist
+
+![](https://github.com/agilecreativity/hn-scrapper/raw/master/doc/03-markdown-as-gist.png)
+
+### The actual result in Markdown format
+
+[Sample-markdown-output](doc/04-sample-markdown.md)
+
 ## Features idea
 
 - Export/print first level content of hackernews to PDFs or Epubs
@@ -70,6 +88,7 @@ Now get the list of all news from [Hacker News](https://news.ycombinator.com/new
 - [reaver](https://github.com/mischov/reaver)
 - [jsoup](https://github.com/jhy/jsoup/)
 - [jsoup - selector syntax](https://jsoup.org/cookbook/extracting-data/selector-syntax)
+- [record screen as animated gif image](https://www.maketecheasier.com/record-screen-as-animated-gif-ubuntu/)
 
 ## License
 
