@@ -1,6 +1,6 @@
-(defproject scrapper "0.1.0"
-  :description "Easy ways to access all of the latest Hakcker News in one page"
-  :url "https://github.com/agilecreativity/hn_scrapper"
+(defproject hn-scrapper "0.1.1"
+  :description "Easy ways to access all of the latest Hacker News links in one page"
+  :url "https://github.com/agilecreativity/hn-scrapper"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :profiles {:dev {:dependencies [[lein-bin "0.3.4"]]}
