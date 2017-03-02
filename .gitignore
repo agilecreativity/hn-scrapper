@@ -11,3 +11,7 @@ pom.xml.asc
 .hg/
 # Generated files
 hacker-news.md
+
+# Eclipse files
+.project
+.classpath
